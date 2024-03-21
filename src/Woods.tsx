@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface MenuItem {
     id: string;
@@ -29,6 +29,44 @@ const cardapio: MenuItem[] = [
        
 ];
 
+interface MenuBebidas {
+   id: string;
+   nome: string;
+   preco: string; 
+   images: any;
+
+}
+
+const bebida: MenuBebidas[] = [ 
+    
+   {id: "1", nome: "Água sem gás", preco: "R$2,00", images: require('./assests/images/aguasemgas.png')},
+   {id: "2", nome: "Coca-Cola Lata", preco: "R$4,50", images: require('./assests/images/coca.png')},
+   {id: "3", nome: "Sucos Naturais", preco: "R$9,00", images: require('./assests/images/suco1.png')},
+   {id: "4", nome: "Guaraná Lata", preco: "R$3,50", images: require('./assests/images/gua.png')},
+   {id: "5", nome: "Coca-Cola 2L", preco: "R$11,00", images: require('./assests/images/cocalitro.png')},
+   
+
+];
+
+interface MenuAcompanhamentos {
+   id: string;
+   nome: string;
+   preco: string; 
+   images: any;
+
+}
+
+const acompanhamentos: MenuAcompanhamentos[] = [ 
+    
+   {id: "1", nome: "Fritas 100g", preco: "R$8,00", images: require('./assests/images/100g.png')},
+   {id: "2", nome: "Fritas com Bacom e Queijo", preco: "R$15,00", images: require('./assests/images/baconequeijo.png')},
+   {id: "3", nome: "Fritas com Cheddar e Bacon", preco: "R$18,00", images: require('./assests/images/cheddarbacon.png')},
+   {id: "4", nome: "Batata Grande 500g", preco: "R$19,50", images: require('./assests/images/grande.png')},
+   {id: "5", nome: "Fritas de Calabresa", preco: "R$17,00", images: require('./assests/images/calabresa.png')},
+   
+
+];
+
 const renderCardapio = ({item} :{item:MenuItem})=>(
     <TouchableOpacity style={styles.item}>
         <Text style={styles.textoNome}>{item.nome}</Text>
@@ -39,6 +77,24 @@ const renderCardapio = ({item} :{item:MenuItem})=>(
     </TouchableOpacity>
 );
 
+const renderAcompanhamentos = ({item} :{item:MenuAcompanhamentos})=>(
+   <TouchableOpacity style={styles.item}>
+       <Text style={styles.textoNome}>{item.nome}</Text>
+       <Text style={styles.textoPreco}>{item.preco}</Text>
+       <Image source={item.images} style={styles.images3}/>
+     
+   </TouchableOpacity>
+);
+
+const renderBebida = ({item} :{item:MenuBebidas})=>(
+   <TouchableOpacity style={styles.item}>
+       <Text style={styles.textoNome}>{item.nome}</Text>
+       <Text style={styles.textoPreco}>{item.preco}</Text>
+       <Image source={item.images} style={styles.images2}/>
+     
+   </TouchableOpacity>
+);
+
 function Woods(): React.JSX.Element{
 
 return (
@@ -46,9 +102,13 @@ return (
       <ImageBackground source={require('./assests/images/fundo.jpg')} resizeMode="cover" style={styles.imagebackground}>
         <StatusBar backgroundColor="gray" barStyle='light-content' />
         <View style={styles.header}>
-            <Text style={styles.headerText}>𝚆𝙾𝙾𝙳𝚂🍔</Text>
+            <Text style={styles.headerText}>𝚆𝙾𝙾𝙳𝚂🍔𝙼𝙴𝙽𝚄</Text>
             <Text style={styles.headerText2}>𝙾 𝚖𝚎𝚕𝚑𝚘𝚛 𝙷𝚊𝚖𝚋𝚞𝚛𝚐𝚞𝚎𝚛</Text>
+            
         </View>
+        
+        <ScrollView>
+        <Text style={styles.item3}>𝙲𝙰𝚁𝙳𝙰𝙿𝙸𝙾</Text>
         <FlatList
       showsVerticalScrollIndicator={false}
       data={cardapio}
@@ -56,6 +116,23 @@ return (
       keyExtractor={(item) => item.id}
      
      />
+     <Text style={styles.item4}>𝙰𝙲𝙾𝙼𝙿𝙰𝙽𝙷𝙰𝙼𝙴𝙽𝚃𝙾𝚂</Text>
+     <FlatList
+      showsVerticalScrollIndicator={false}
+      data={acompanhamentos}
+      renderItem={renderAcompanhamentos}
+      keyExtractor={(item) => item.id}
+     
+     />
+     <Text style={styles.item2}>𝙱𝙴𝙱𝙸𝙳𝙰𝚂</Text>
+     <FlatList
+      horizontal={true}
+      data={bebida}
+      renderItem={renderBebida}
+      keyExtractor={(item) => item.id}
+     
+     />
+     </ScrollView>
      </ImageBackground>
      
      <View style={styles.footer}>
@@ -109,7 +186,7 @@ const styles = StyleSheet.create({
            paddingHorizontal:107
         },
         headerText:{
-           fontSize:30,
+           fontSize:25,
            fontWeight: 'bold',
            color: 'white'
         },
@@ -150,7 +227,49 @@ const styles = StyleSheet.create({
         textoPreco: {
          fontSize:20,
          color: 'white'
-        }
+        },
+        images2: {
+         width: 100,
+         height: 170
+        },
+        images3: {
+         width: 250,
+         height: 240
+        },
+        item2: {
+         backgroundColor: '#c63637',
+         padding: 10,
+         marginVertical: 8,
+         marginHorizontal: 16,
+         borderRadius:20,
+         borderColor: '#ff6961',
+        borderWidth: 4,
+        fontSize:30,
+        paddingHorizontal: 100
+      },
+      item3: {
+         backgroundColor: '#c63637',
+         padding: 10,
+         marginVertical: 8,
+         marginHorizontal: 16,
+         borderRadius:20,
+         borderColor: '#ff6961',
+        borderWidth: 4,
+        fontSize:30,
+        paddingHorizontal: 100
+      },
+      item4: {
+         backgroundColor: '#c63637',
+         padding: 10,
+         marginVertical: 8,
+         marginHorizontal: 16,
+         borderRadius:20,
+         borderColor: '#ff6961',
+        borderWidth: 4,
+        fontSize:30,
+        paddingHorizontal: 36
+      },
+        
         
 
 });
