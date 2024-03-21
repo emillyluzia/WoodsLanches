@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Image, ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 interface MenuItem {
     id: string;
@@ -39,11 +39,11 @@ interface MenuBebidas {
 
 const bebida: MenuBebidas[] = [ 
     
-   {id: "1", nome: "Água sem gás", preco: "R$2,00", images: require('./assests/images/aguasemgas.png')},
-   {id: "2", nome: "Coca-Cola Lata", preco: "R$4,50", images: require('./assests/images/coca.png')},
-   {id: "3", nome: "Sucos Naturais", preco: "R$9,00", images: require('./assests/images/suco1.png')},
-   {id: "4", nome: "Guaraná Lata", preco: "R$3,50", images: require('./assests/images/gua.png')},
-   {id: "5", nome: "Coca-Cola 2L", preco: "R$11,00", images: require('./assests/images/cocalitro.png')},
+   {id: "1", nome: "𝙰́𝚐𝚞𝚊 𝚜𝚎𝚖 𝚐𝚊́𝚜", preco: "R$2,00", images: require('./assests/images/aguasemgas.png')},
+   {id: "2", nome: "𝙰́𝚐𝚞𝚊 𝚜𝚎𝚖 𝚐𝚊́𝚜", preco: "R$4,50", images: require('./assests/images/coca.png')},
+   {id: "3", nome: "𝚂𝚞𝚌𝚘𝚜 𝙽𝚊𝚝𝚞𝚛𝚊𝚒𝚜", preco: "R$9,00", images: require('./assests/images/suco1.png')},
+   {id: "4", nome: "𝙶𝚞𝚊𝚛𝚊𝚗𝚊́ 𝙻𝚊𝚝𝚊", preco: "R$3,50", images: require('./assests/images/gua.png')},
+   {id: "5", nome: "𝙲𝚘𝚌𝚊-𝙲𝚘𝚕𝚊 𝟸𝙻", preco: "R$11,00", images: require('./assests/images/cocalitro.png')},
    
 
 ];
@@ -58,11 +58,11 @@ interface MenuAcompanhamentos {
 
 const acompanhamentos: MenuAcompanhamentos[] = [ 
     
-   {id: "1", nome: "Fritas 100g", preco: "R$8,00", images: require('./assests/images/100g.png')},
-   {id: "2", nome: "Fritas com Bacom e Queijo", preco: "R$15,00", images: require('./assests/images/baconequeijo.png')},
-   {id: "3", nome: "Fritas com Cheddar e Bacon", preco: "R$18,00", images: require('./assests/images/cheddarbacon.png')},
-   {id: "4", nome: "Batata Grande 500g", preco: "R$19,50", images: require('./assests/images/grande.png')},
-   {id: "5", nome: "Fritas de Calabresa", preco: "R$17,00", images: require('./assests/images/calabresa.png')},
+   {id: "1", nome: "𝙵𝚛𝚒𝚝𝚊𝚜 𝟷𝟶𝟶𝚐", preco: "R$8,00", images: require('./assests/images/100g1.png')},
+   {id: "2", nome: "𝙵𝚛𝚒𝚝𝚊𝚜 𝚌𝚘𝚖 𝙱𝚊𝚌𝚘𝚗 𝚎 𝚀𝚞𝚎𝚒𝚓𝚘", preco: "R$15,00", images: require('./assests/images/baconequeijo.png')},
+   {id: "3", nome: "𝙵𝚛𝚒𝚝𝚊𝚜 𝚌𝚘𝚖 𝙲𝚑𝚎𝚍𝚍𝚊𝚛 𝚎 𝙱𝚊𝚌𝚘𝚗", preco: "R$18,00", images: require('./assests/images/cheddarbacon.png')},
+   {id: "4", nome: "𝙱𝚊𝚝𝚊𝚝𝚊 𝙶𝚛𝚊𝚗𝚍𝚎 𝟻𝟶𝟶𝚐", preco: "R$19,50", images: require('./assests/images/grande.png')},
+   {id: "5", nome: "Fritas e Calabresa", preco: "R$17,00", images: require('./assests/images/calabresa.png')},
    
 
 ];
@@ -73,8 +73,14 @@ const renderCardapio = ({item} :{item:MenuItem})=>(
         <Text style={styles.textoPreco}>{item.preco}</Text>
         <Text>{item.ingredientes}</Text>
         <Image source={item.images} style={styles.images}/>
-      
+        <TouchableOpacity>
+         <Image source={require('./assests/images/adicionar.png')} style={styles.images4}></Image>
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <Image source={require('./assests/images/subtracao.png')} style={styles.images5}></Image>
+        </TouchableOpacity>
     </TouchableOpacity>
+    
 );
 
 const renderAcompanhamentos = ({item} :{item:MenuAcompanhamentos})=>(
@@ -82,7 +88,12 @@ const renderAcompanhamentos = ({item} :{item:MenuAcompanhamentos})=>(
        <Text style={styles.textoNome}>{item.nome}</Text>
        <Text style={styles.textoPreco}>{item.preco}</Text>
        <Image source={item.images} style={styles.images3}/>
-     
+       <TouchableOpacity>
+         <Image source={require('./assests/images/adicionar.png')} style={styles.images4}></Image>
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <Image source={require('./assests/images/subtracao.png')} style={styles.images5}></Image>
+        </TouchableOpacity>
    </TouchableOpacity>
 );
 
@@ -91,7 +102,12 @@ const renderBebida = ({item} :{item:MenuBebidas})=>(
        <Text style={styles.textoNome}>{item.nome}</Text>
        <Text style={styles.textoPreco}>{item.preco}</Text>
        <Image source={item.images} style={styles.images2}/>
-     
+       <TouchableOpacity>
+         <Image source={require('./assests/images/adicionar.png')} style={styles.images4}></Image>
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <Image source={require('./assests/images/subtracao.png')} style={styles.images5}></Image>
+        </TouchableOpacity>
    </TouchableOpacity>
 );
 
@@ -108,6 +124,13 @@ return (
         </View>
         
         <ScrollView>
+         <View style={styles.alinhamento}>
+         <TextInput
+         style={styles.input}
+         placeholder="Pesquisar"
+         placeholderTextColor={"black"}/>
+         </View>
+         
         <Text style={styles.item3}>𝙲𝙰𝚁𝙳𝙰𝙿𝙸𝙾</Text>
         <FlatList
       showsVerticalScrollIndicator={false}
@@ -233,8 +256,20 @@ const styles = StyleSheet.create({
          height: 170
         },
         images3: {
-         width: 250,
-         height: 240
+         width: 290,
+         height: 200
+        },
+        images4: {
+          width:30,
+          height: 30,
+          marginTop: 8
+        },
+        images5:{
+         height: 30,
+         width: 30,
+         marginLeft: 35,
+         marginTop: -30
+
         },
         item2: {
          backgroundColor: '#c63637',
@@ -269,6 +304,19 @@ const styles = StyleSheet.create({
         fontSize:30,
         paddingHorizontal: 36
       },
+      input:{
+         backgroundColor: '#c63637',
+         height:45,
+         width:90,
+         marginBottom:20,
+         borderWidth:1,
+         borderColor: 'black'
+      },
+      alinhamento:{
+         flexDirection: 'row',
+         justifyContent: 'space-between',
+         width: "90%"
+      }
         
         
 
