@@ -1,12 +1,12 @@
 import React from 'react';
-import Woods from './src/Woods';
+import CadastroProduto from './src/screens/CadastroProduto'
 
 
 function App(): React.JSX.Element {
   
   
   return (
-    <Woods/>
+    <CadastroProduto/>
   );
 }
 

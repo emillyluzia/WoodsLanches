@@ -111,7 +111,7 @@ const renderBebida = ({item} :{item:MenuBebidas})=>(
    </TouchableOpacity>
 );
 
-function Woods(): React.JSX.Element{
+function Woods2(): React.JSX.Element{
 
 return (
     <View style={styles.container}>
@@ -139,22 +139,7 @@ return (
       keyExtractor={(item) => item.id}
      
      />
-     <Text style={styles.item4}>𝙰𝙲𝙾𝙼𝙿𝙰𝙽𝙷𝙰𝙼𝙴𝙽𝚃𝙾𝚂</Text>
-     <FlatList
-      showsVerticalScrollIndicator={false}
-      data={acompanhamentos}
-      renderItem={renderAcompanhamentos}
-      keyExtractor={(item) => item.id}
-     
-     />
-     <Text style={styles.item2}>𝙱𝙴𝙱𝙸𝙳𝙰𝚂</Text>
-     <FlatList
-      horizontal={true}
-      data={bebida}
-      renderItem={renderBebida}
-      keyExtractor={(item) => item.id}
-     
-     />
+    
      </ScrollView>
      </ImageBackground>
      
@@ -325,5 +310,5 @@ const styles = StyleSheet.create({
         
 
 });
-export default Woods;
+export default Woods2;
 
