@@ -78,9 +78,10 @@ const CadastroProduto: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor="red" barStyle="light-content"/>
+            <StatusBar backgroundColor="#c63637" barStyle="light-content"/>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Top Food</Text>
+                <Text style={styles.headerText}>𝚆𝙾𝙾𝙳𝚂🍔</Text>
+                <Text style={styles.headerText2}>𝙲𝙰𝙳𝙰𝚂𝚃𝚁𝙾 𝙳𝙴 𝙿𝚁𝙾𝙳𝚄𝚃𝙾𝚂</Text>
             </View>
 
             <View style={styles.form}>
@@ -106,7 +107,36 @@ const CadastroProduto: React.FC = () => {
 
             </View>
 
-        </View>
+            <View style={styles.footer}>
+         <TouchableOpacity>
+            <Image
+            source={require('../assests/images/home.png')}
+            style={styles.footerIcon}
+            />
+         </TouchableOpacity>
+         <TouchableOpacity>
+            <Image
+            source={require('../assests/images/pedido.png')}
+            style={styles.footerIcon}
+            />
+         </TouchableOpacity>
+         <TouchableOpacity>
+            <Image
+            source={require('../assests/images/menu.png')}
+            style={styles.footerIcon}
+            />
+         </TouchableOpacity>
+         <TouchableOpacity>
+            <Image
+            source={require('../assests/images/perfil.png')}
+            style={styles.footerIcon}
+            />
+         </TouchableOpacity>
+     </View>
+    
+    </View>
+
+        
     );
 }
 
@@ -115,7 +145,7 @@ const styles=StyleSheet.create({
         flex:1
     },
     header: {
-        backgroundColor: 'red',
+        backgroundColor: '#c63637',
         paddingVertical: 10,
         alignItems: 'center'
     },
@@ -124,6 +154,11 @@ const styles=StyleSheet.create({
         fontWeight: 'bold',
         color: 'white'
     },
+    headerText2: {
+        fontSize:16,
+          fontWeight: 'bold',
+          color: 'white'
+       },
     form: {
          padding: 10,
          backgroundColor: '#f0f0f0',
@@ -137,13 +172,26 @@ const styles=StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 10
     },
+    footer:{
+        borderTopWidth:0.2,
+        backgroundColor: '#c63637',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        paddingVertical: 10,
+        marginVertical:323
+      },
     imageButton: {
-        backgroundColor: 'red',
+        backgroundColor: '#c63637',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center',
         marginBottom: 10
     },
+    footerIcon: {
+        width: 30,
+        height: 30
+      },
     imageButtonText: {
         color:'white',
         fontWeight: 'bold'
@@ -159,7 +207,7 @@ const styles=StyleSheet.create({
         alignItems: 'center'
     },
     button: {
-        backgroundColor: 'red',
+        backgroundColor: '#c63637',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center'

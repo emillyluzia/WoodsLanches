@@ -8,6 +8,7 @@ function App(): React.JSX.Element {
   
   
   return (
+   // <CadastroProduto/>
     <CadastroCliente/>
   );
 }
