@@ -183,6 +183,13 @@ return (
             style={styles.footerIcon}
             />
          </TouchableOpacity>
+         <TouchableOpacity>
+            <Image
+            source={require('./assests/images/sacola.png')}
+            style={styles.footerIcon}
+            />
+         </TouchableOpacity>
+
      </View>
     
     </View>
@@ -320,7 +327,20 @@ const styles = StyleSheet.create({
          paddingHorizontal: 50,
          marginTop: 13,
          
-      }
+      },
+      carrinho:{
+         position:'absolute',
+         width:40,
+         height:140,
+         alignItems:'center',
+         justifyContent:'center',
+         right:20,
+         bottom:30
+     },
+     imagemCarrinho:{
+         width:60,
+         height:60
+     }
         
         
 
