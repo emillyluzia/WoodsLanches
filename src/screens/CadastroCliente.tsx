@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, StatusBar, TextInput, TouchableOpacity, Image, } from "react-native";
 import axios from "axios";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import { useNavigation } from "@react-navigation/native";
 
 const CadastroCliente: React.FC = () => {
     const [clientes, setClientes] = useState<Produto[]>([]);
@@ -83,9 +84,9 @@ const CadastroCliente: React.FC = () => {
     });
      }
 
-
+     const navigation = useNavigation();
      
-     
+      
     return (
         
         <View style={styles.container}>
@@ -122,25 +123,25 @@ const CadastroCliente: React.FC = () => {
             </View>
 
             <View style={styles.footer}>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={() => navigation.navigate('Wodds')}>
             <Image
             source={require('../assests/images/home.png')}
             style={styles.footerIcon}
             />
          </TouchableOpacity>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={() => navigation.navigate('CadastroCliente')}>
             <Image
             source={require('../assests/images/pedido.png')}
             style={styles.footerIcon}
             />
          </TouchableOpacity>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={() => navigation.navigate('CadastroProduto')}>
             <Image
             source={require('../assests/images/menu.png')}
             style={styles.footerIcon}
             />
          </TouchableOpacity>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={() => navigation.navigate('ListagemProduto')}>
             <Image
             source={require('../assests/images/perfil.png')}
             style={styles.footerIcon}
